@@ -17,7 +17,7 @@ Route::get('/matakuliah/update/{param2}', [MatakuliahController::class, 'update'
 Route::get('/matakuliah/delete/{param2}', [MatakuliahController::class, 'destroy']);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Selamt Datang');
 });
 
 Route::get('/pcr', function () {

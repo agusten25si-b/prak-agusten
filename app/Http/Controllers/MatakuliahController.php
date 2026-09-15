@@ -26,7 +26,7 @@ class MatakuliahController extends Controller
      */
     public function store(Request $request)
     {
-        return "Menyimpan data matakuliah baru";
+        return "Menyimpan matakuliah baru";
     }
 
     /**
