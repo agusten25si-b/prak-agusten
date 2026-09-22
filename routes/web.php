@@ -3,12 +3,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 use App\Http\Controllers\MahasiswaController;
-
 
 use App\Http\Controllers\MatakuliahController;
 use PhpParser\Builder\Function_;
+
+use App\Http\Controllers\QuestionController ;
+
 
 
 Route::get('/mahasiswa/{param1}', [MahasiswaController::class, 'show']);
@@ -70,7 +71,8 @@ Route::get('/a', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
-
+Route::post('question/store', [QuestionController::class, 'store'])
+		->name('question.store');
 
 
 
