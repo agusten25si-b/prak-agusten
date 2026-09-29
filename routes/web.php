@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MahasiswaController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\MatakuliahController;
 use PhpParser\Builder\Function_;
 
 use App\Http\Controllers\QuestionController ;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 
 
@@ -23,6 +25,7 @@ Route::get('/matakuliah/edit/{param2}', [MatakuliahController::class, 'edit']);
 Route::get('/matakuliah/update/{param2}', [MatakuliahController::class, 'update']);
 Route::get('/matakuliah/delete/{param2}', [MatakuliahController::class, 'destroy']);
 
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashaboard');
 
 Route::get('/', function () {
     return view('welcome');
@@ -75,3 +78,4 @@ Route::post('question/store', [QuestionController::class, 'store'])
 		->name('question.store');
 
 Route::get('/question', [QuestionController::class, 'index'])->name('question.index');
+
