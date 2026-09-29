@@ -11,7 +11,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $data = session('data');
+
+        return view('home-question-respon', compact('data'));
     }
 
     /**
@@ -19,7 +21,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -27,9 +29,24 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
-    }
+        //dd($request->all());
+        $request->validate([
+            'nama'  => 'required|max:10',
+            'email' => ['required','email'],
+            'pertanyaan' => 'required|max:300|min:8',
+        ],[
+            'nama.required' => 'Nama tidak boleh kosong',
+            'email.email' => 'Email Tidak valid'
+        ]);
 
+        $data['nama']= $request->nama;
+        $data['email'] = $request->email;
+        $data['pertanyaan'] = $request->pertanyaan;
+
+        // return view('home-question-respon', $data);
+        return redirect()->route('question.index')->with('data', $data);
+
+    }
     /**
      * Display the specified resource.
      */

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'EduQLDHand-VariableFont_wght';
+    src: url('../fonts/EduQLDHand-VariableFont_wght.ttf');
+}
+
+.font-custom {
+    font-family: 'EduQLDHand-VariableFont_wght';
+}
