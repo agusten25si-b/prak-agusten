@@ -11,6 +11,7 @@ use PhpParser\Builder\Function_;
 
 use App\Http\Controllers\QuestionController ;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\PelangganController ;
 
 
 
@@ -25,7 +26,7 @@ Route::get('/matakuliah/edit/{param2}', [MatakuliahController::class, 'edit']);
 Route::get('/matakuliah/update/{param2}', [MatakuliahController::class, 'update']);
 Route::get('/matakuliah/delete/{param2}', [MatakuliahController::class, 'destroy']);
 
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashaboard');
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/', function () {
     return view('welcome');
@@ -79,3 +80,4 @@ Route::post('question/store', [QuestionController::class, 'store'])
 
 Route::get('/question', [QuestionController::class, 'index'])->name('question.index');
 
+Route::resource('pelanggan', PelangganController::class);
