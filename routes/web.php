@@ -13,7 +13,7 @@ use App\Http\Controllers\QuestionController ;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\PelangganController ;
 
-
+use App\Http\Controllers\UserController;
 
 Route::get('/mahasiswa/{param1}', [MahasiswaController::class, 'show']);
 
@@ -81,3 +81,5 @@ Route::post('question/store', [QuestionController::class, 'store'])
 Route::get('/question', [QuestionController::class, 'index'])->name('question.index');
 
 Route::resource('pelanggan', PelangganController::class);
+
+Route::resource('user', UserController::class);
