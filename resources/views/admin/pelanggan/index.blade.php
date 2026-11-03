@@ -72,6 +72,7 @@
 
                             <thead class="thead-light">
                                 <tr>
+                                    <th class="border-0 rounded-start">No.</th>
                                     <th class="border-0">First Name</th>
                                     <th class="border-0">Last Name</th>
                                     <th class="border-0">Birthday</th>
@@ -83,8 +84,12 @@
                             </thead>
 
                             <tbody>
+                                    @php
+                                        $i=0;
+                                    @endphp
                                 @forelse ($dataPelanggan as $item)
                                     <tr>
+                                        <td>{{($dataPelanggan->currentPage() - 1) * $dataPelanggan->perPage() + $loop->iteration}}</td>
                                         <td>{{ $item->first_name }}</td>
                                         <td>{{ $item->last_name }}</td>
                                         <td>{{ $item->birthday }}</td>
@@ -128,6 +133,10 @@
                             </tbody>
 
                         </table>
+
+                             <div class="mt-3">
+                                {{ $dataPelanggan->links('pagination::bootstrap-5') }}
+                            </div>
                     </div>
                 </div>
             </div>
