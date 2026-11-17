@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
@@ -12,8 +13,15 @@ class UserController extends Controller
     // Menampilkan daftar user
     public function index()
     {
+    if (!Auth::check()) {
+            return redirect()->route('login')
+                ->withErrors(['email' => 'Silakan login terlebih dahulu'])
+                ->onlyInput('email');
+        }
+
         $users = User::latest()->paginate(15);
         return view('admin.user.index', compact('users'));
+
     }
 
     // Menampilkan form tambah user

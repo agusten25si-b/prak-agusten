@@ -83,3 +83,12 @@ Route::get('/question', [QuestionController::class, 'index'])->name('question.in
 Route::resource('pelanggan', PelangganController::class);
 
 Route::resource('user', UserController::class);
+
+use App\Http\Controllers\AuthController;
+
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth')
+    ->name('auth.logout');
+
