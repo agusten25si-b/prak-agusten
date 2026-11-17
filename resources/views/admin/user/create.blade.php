@@ -99,6 +99,32 @@
                     @enderror
                 </div>
 
+                {{-- Role --}}
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <select
+                        name="role"
+                        id="role"
+                        class="form-select @error('role') is-invalid @enderror"
+                        required
+                    >
+                        <option value="">Pilih Role</option>
+                        <option value="Super Admin" {{ old('role') == 'Super Admin' ? 'selected' : '' }}>
+                            Super Admin
+                        </option>
+                        <option value="Pelanggan" {{ old('role') == 'Pelanggan' ? 'selected' : '' }}>
+                            Pelanggan
+                        </option>
+                        <option value="Mitra" {{ old('role') == 'Mitra' ? 'selected' : '' }}>
+                            Mitra
+                        </option>
+                    </select>
+
+                    @error('role')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 {{-- Konfirmasi Password --}}
                 <div class="mb-4">
                     <label for="password_confirmation" class="form-label">

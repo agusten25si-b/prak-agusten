@@ -81,6 +81,32 @@
                     @error('email')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
+
+
+                {{-- Role --}}
+                <div class="mb-3"></div>
+                    <label for="role" class="form-label">Role</label>
+                    <select
+                        name="role"
+                        id="role"
+                        class="form-select @error('role') is-invalid @enderror"
+                        required
+                    >
+                        <option value="">Pilih Role</option>
+                        <option value="Super Admin" {{ old('role', $user->role) == 'Super Admin' ? 'selected' : '' }}>
+                            Super Admin
+                        </option>
+                        <option value="Pelanggan" {{ old('role', $user->role) == 'Pelanggan' ? 'selected' : '' }}>
+                            Pelanggan
+                        </option>
+                        <option value="Mitra" {{ old('role', $user->role) == 'Mitra' ? 'selected' : '' }}>
+                            Mitra
+                        </option>
+                    </select>
+
+                    @error('role')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 {{-- Password baru --}}
@@ -102,6 +128,7 @@
                         Isi minimal 8 karakter jika ingin mengganti password.
                     </small>
                 </div>
+
 
                 {{-- Konfirmasi Password --}}
                 <div class="mb-4">

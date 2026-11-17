@@ -51,6 +51,11 @@ class UserController extends Controller
                 'min:8',
                 'confirmed',
             ],
+            'role' => [
+                'required',
+                'string',
+                'in:Super Admin,Pelanggan,Mitra',
+            ],
         ], [
             'name.required' => 'Nama wajib diisi.',
             'name.max' => 'Nama maksimal 100 karakter.',
